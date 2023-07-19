@@ -1,15 +1,7 @@
-import { Note } from './Note.js';
-import { NoteList } from './NoteList.js';
+import { ToDo } from './ToDo.js';
 
-let newList = new NoteList(document.getElementById('app'), 'my', [
-  { name: 'posrat' },
-  { name: 'kofa popit' },
-]);
+let app = new ToDo(document.getElementById('app'));
 
-// let newNote = new Note(document.getElementById('app'), 'приготовить обед');
+app.addUser('покупки', 'shop');
 
-document.getElementById('action').addEventListener('click', function () {
-  newList.add(prompt('что надо сделать?'));
-  newList.update();
-  console.log(newList);
-});
+app.addUser('информация', 'info');

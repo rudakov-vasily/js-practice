@@ -1,3 +1,5 @@
+import { NoteList } from './NoteList.js';
+
 export class Note {
   _name = '';
   _done = false;
@@ -39,8 +41,13 @@ export class Note {
 
     this.name = name;
     this.done = done;
+    this.container = container;
 
-    container.append(this.item);
+    if (container instanceof NoteList) {
+      container.list.append(this.item);
+    } else {
+      container.append(this.item);
+    }
   }
 
   set name(value) {
@@ -58,6 +65,10 @@ export class Note {
     } else {
       this.item.classList.remove('list-group-item-success');
     }
+
+    if (this.container instanceof NoteList) {
+      this.container.save();
+    }
   }
   get done() {
     return this._done;
@@ -65,5 +76,8 @@ export class Note {
 
   delete() {
     this.item.remove();
+    if (this.container instanceof NoteList) {
+      this.container.remove(this);
+    }
   }
 }

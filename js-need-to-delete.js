@@ -33,19 +33,19 @@ class Employee {
   }
 }
 
-let plumber = new Employee();
-let driver = new Employee();
+// let plumber = new Employee();
+// let driver = new Employee();
 
-plumber.setName('vernon');
-plumber.setSalary(1350);
-driver.setName('sarah');
-driver.setSalary(1100);
+// plumber.setName('vernon');
+// plumber.setSalary(1350);
+// driver.setName('sarah');
+// driver.setSalary(1100);
 
-plumber.show();
-plumber.upperSalary();
-plumber.show();
-console.log(driver.getName());
-console.log(driver.getSalary());
+// plumber.show();
+// plumber.upperSalary();
+// plumber.show();
+// console.log(driver.getName());
+// console.log(driver.getSalary());
 
 // class Student {
 //   constructor() {

@@ -66,6 +66,7 @@
 // newStudent.surname = 'carlson';
 // newStudent.showInitials();
 
+<<<<<<< HEAD
 function counter() {
   let count = 0;
   return function () {
@@ -83,3 +84,42 @@ console.log(counterOfFunction());
 
 // console.log(showCoynter());
 // console.log(showCoynter());
+=======
+// class Employee {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// let emp1 = new Employee('john');
+// let emp2 = new Employee('john');
+
+// console.log(emp1 === emp2);
+
+class Student {
+  constructor(name) {
+    this.name = name;
+  }
+}
+class Employee {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+let users = [
+  new Student('user1'),
+  new Employee('user2'),
+  new Student('user3'),
+  new Employee('user4'),
+  new Student('user5'),
+  new Employee('user6'),
+  new Student('user7'),
+];
+
+for (let i = 0; i < users.length; i++) {
+  if (users[i] instanceof Employee) {
+    console.log(users[i].name);
+  }
+}
+>>>>>>> 9be28a268b49aa894af3eb6dc80902bd060cb762

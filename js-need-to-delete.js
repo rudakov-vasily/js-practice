@@ -1,37 +1,37 @@
-class Employee {
-  #name;
-  #salary;
-  //   constructor(name, salary) {
-  //     this.#salary = salary;
-  //     this.#name = name;
-  //   }
-  show() {
-    console.log(Math.round(this.#salary) + ' ' + this.#name);
-  }
+// class Employee {
+//   #name;
+//   #salary;
+//   //   constructor(name, salary) {
+//   //     this.#salary = salary;
+//   //     this.#name = name;
+//   //   }
+//   show() {
+//     console.log(Math.round(this.#salary) + ' ' + this.#name);
+//   }
 
-  upperSalary() {
-    this.#salary *= 1.1;
-  }
+//   upperSalary() {
+//     this.#salary *= 1.1;
+//   }
 
-  getName() {
-    return this.#name;
-  }
+//   getName() {
+//     return this.#name;
+//   }
 
-  getSalary() {
-    return this.#salary + '$';
-  }
+//   getSalary() {
+//     return this.#salary + '$';
+//   }
 
-  setName(name) {
-    if (name.length > 3) {
-      this.#name = name;
-    } else {
-      console.log('name is ery short!');
-    }
-  }
-  setSalary(salary) {
-    this.#salary = salary;
-  }
-}
+//   setName(name) {
+//     if (name.length > 3) {
+//       this.#name = name;
+//     } else {
+//       console.log('name is ery short!');
+//     }
+//   }
+//   setSalary(salary) {
+//     this.#salary = salary;
+//   }
+// }
 
 // let plumber = new Employee();
 // let driver = new Employee();
@@ -65,3 +65,21 @@ class Employee {
 // newStudent.name = 'jacob';
 // newStudent.surname = 'carlson';
 // newStudent.showInitials();
+
+function counter() {
+  let count = 0;
+  return function () {
+    return ++count;
+  };
+}
+
+const counterOfFunction = counter();
+console.log(counterOfFunction());
+console.log(counterOfFunction());
+console.log(counterOfFunction());
+counterOfFunction();
+counterOfFunction();
+console.log(counterOfFunction());
+
+// console.log(showCoynter());
+// console.log(showCoynter());

@@ -66,7 +66,7 @@ const displayCountry = function (data, className = '') {
 //   request1.open('GET', `https://restcountries.com/v3.1/name/${countryName}`);
 //   request1.send();
 
-const request = fetch('https://restcountries.com/v3.1/name/russia');
+// const request = fetch('https://restcountries.com/v3.1/name/russia');
 
 const getCountryData = function (countryName) {
   fetch(`https://restcountries.com/v3.1/name/${countryName}`)
@@ -87,6 +87,20 @@ const getCountryData = function (countryName) {
     });
 };
 
-btn.addEventListener('click', function () {
-  getCountryData('russia');
-});
+// btn.addEventListener('click', function () {
+//   getCountryData('russia');
+// });
+
+const displayCountryByGPS = function (lat, lng) {
+  fetch(`https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(`you are in ${data.address.country}`);
+
+      getCountryData(`${data.address.country}`);
+    });
+};
+
+// displayCountryByGPS(35.756, 139.256);
+displayCountryByGPS(48.857, 2.358);
+displayCountryByGPS(40.708, -74.051);

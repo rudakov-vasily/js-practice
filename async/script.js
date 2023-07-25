@@ -71,6 +71,22 @@ const request = fetch('https://restcountries.com/v3.1/name/russia');
 const getCountryData = function (countryName) {
   fetch(`https://restcountries.com/v3.1/name/${countryName}`)
     .then((response) => response.json())
-    .then((data) => displayCountry(data[0]));
+    .then((data) => {
+      displayCountry(data[0]);
+      const firstNeighbour = data[0].borders[0];
+
+      if (!firstNeighbour) return;
+
+      return fetch(`https://restcountries.com/v3.1/alpha/${firstNeighbour}`);
+    })
+    .then((response) => response.json())
+    .then((data) => displayCountry(data[0], 'neighbour'))
+    .catch((e) => console.log(`somebody catch${e}`))
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
-getCountryData('russia');
+
+btn.addEventListener('click', function () {
+  getCountryData('russia');
+});

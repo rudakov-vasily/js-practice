@@ -1,3 +1,5 @@
+import { Result } from './Result.js';
+
 export class Dice {
   result = '';
 
@@ -71,6 +73,11 @@ export class Dice {
         this.result = `D${this.cubesFacesArray[this.i]}: ${
           this.diceResult.textContent
         }`;
+        let result = new Result(
+          document.querySelector('.history'),
+          this.cubesFacesArray[this.i],
+          this.diceResult.textContent
+        );
         console.log(this.result);
       }
     });

@@ -1,5 +1,7 @@
 export class Dice {
-  constructor(container, history) {
+  result = '';
+
+  constructor(container) {
     this.dice = document.createElement('div');
     this.dice.classList.add('container__cube');
 
@@ -66,9 +68,10 @@ export class Dice {
       if (this.cubesFaces.textContent !== '-') {
         this.diceResult.innerHTML = this.diceRoll();
 
-        console.log(
-          `D${this.cubesFacesArray[this.i]}: ${this.diceResult.textContent}`
-        );
+        this.result = `D${this.cubesFacesArray[this.i]}: ${
+          this.diceResult.textContent
+        }`;
+        console.log(this.result);
       }
     });
 
@@ -78,4 +81,12 @@ export class Dice {
   diceRoll() {
     return Math.ceil(Math.random() * this.cubesFacesArray[this.i]);
   }
+
+  // setResult(result) {
+  //   this.result = result;
+  // }
+
+  // getResult() {
+  //   return this.result;
+  // }
 }

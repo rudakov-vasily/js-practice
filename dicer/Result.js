@@ -4,6 +4,6 @@ export class Result {
 
     this.res.textContent = `D${dQty}: ${res}`;
 
-    container.append(this.res);
+    container.prepend(this.res);
   }
 }

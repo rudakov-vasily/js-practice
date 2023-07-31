@@ -5,7 +5,7 @@ export class Dice {
 
   constructor(container) {
     this.dice = document.createElement('div');
-    this.dice.classList.add('container__cube');
+    this.dice.classList.add('container__cube', 'border');
 
     // ------------------
     // this.cubeNumber = cubeNumber;
@@ -74,7 +74,7 @@ export class Dice {
           this.diceResult.textContent
         }`;
         let result = new Result(
-          document.querySelector('.history'),
+          document.querySelector('.history-log'),
           this.cubesFacesArray[this.i],
           this.diceResult.textContent
         );

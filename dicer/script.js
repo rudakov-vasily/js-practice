@@ -1,24 +1,29 @@
 import { Dice } from './Dice.js';
 
-const createNew = document.querySelector('.button-create-new');
-createNew.addEventListener('click', function () {
-  let Cube = new Dice(document.querySelector('.container'));
+const MyCubes = [];
+
+const [throwButton] = document.getElementsByClassName('button button-all-roll');
+
+if (MyCubes.length === 0) throwButton.disabled = true;
+
+const [createButton] = document.getElementsByClassName(
+  'button button-create-new'
+);
+
+createButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  MyCubes.push(new Dice(prompt('сколько сторон?', 4)));
+  if (MyCubes.length > 0) throwButton.disabled = false;
 });
 
-let Cube = new Dice(document.querySelector('.container'));
-// console.log(Cube1);
-// let Cube2 = new Dice(document.querySelector('.container'), 2);
-// let Cube3 = new Dice(document.querySelector('.container'), 3);
-// let Cube4 = new Dice(document.querySelector('.container'), 4);
+const [CH] = document.getElementsByClassName('history-log');
 
-const btnAllRoll = document.querySelector('.button-all-roll');
-// console.log(btnAll);
-
-function triggerButton1Click() {
-  document.querySelectorAll('.button-roll').forEach(function (el) {
-    el.dispatchEvent(new Event('click'));
-  });
-}
-btnAllRoll.addEventListener('click', function () {
-  triggerButton1Click();
+throwButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const throwResults = MyCubes.reduce((acc, cube) => {
+    cube.diceRoll();
+    acc += cube.getResult();
+    return acc;
+  }, 0);
+  CH.append(`держи: ${throwResults}`);
 });

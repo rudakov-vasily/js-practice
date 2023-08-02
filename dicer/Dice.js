@@ -44,14 +44,14 @@ export class Dice {
     container.append(this.dice);
 
     this.i = 0;
-    this.cubesFacesArray = [4, 6, 8, 10, 12, 20];
+    this.cubesFacesArray = [4, 6, 8, 10, 12, 20, 100];
     //кнопка БОЛЬШЕ СТОРОН КУБИКА
     this.btnMoreFaces.addEventListener('click', () => {
       if (this.cubesFaces.textContent === '-') {
         /**вначале стоит - , 
   с ним нельзя кинуть кубик, кнопка ставит значение на первый элемент массива*/
         this.cubesFaces.innerHTML = this.cubesFacesArray[this.i];
-      } else if (this.i < 5) {
+      } else if (this.i < this.cubesFacesArray.length - 1) {
         this.i++;
         this.cubesFaces.innerHTML = this.cubesFacesArray[this.i];
       }

@@ -99,7 +99,7 @@
 // }
 
 export class Dice {
-  minSides = 2;
+  minSides = 1;
   result = '';
 
   constructor(sides = this.minSides) {

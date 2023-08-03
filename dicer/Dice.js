@@ -103,7 +103,7 @@ export class Dice {
   result = '';
 
   constructor(sides = this.minSides) {
-    this.sides = sides < this.minSides ? this.minSides : sides;
+    this.sides = Number(sides) < this.minSides ? this.minSides : Number(sides);
   }
 
   diceRoll() {
@@ -112,11 +112,19 @@ export class Dice {
     );
   }
 
+  getSides() {
+    return this.sides;
+  }
+
   getResult() {
     return this.result;
   }
 
   takeOutOfTheTable() {
     this.result = '';
+  }
+
+  sidesPlus() {
+    this.sides += 1;
   }
 }

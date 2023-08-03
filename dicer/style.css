@@ -38,6 +38,7 @@ main {
 .container {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .container__cube {
@@ -45,7 +46,8 @@ main {
   width: 180px;
   height: 180px;
   border-radius: 25px;
-  text-align: center;
+  display: grid;
+  place-items: center;
 }
 
 .container__cube-qty {

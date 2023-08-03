@@ -1,6 +1,7 @@
 import { Dice } from './Dice.js';
 
 const MyCubes = [];
+const [table] = document.getElementsByClassName('container border');
 
 const [throwButton] = document.getElementsByClassName('button button-all-roll');
 
@@ -12,7 +13,24 @@ const [createButton] = document.getElementsByClassName(
 
 createButton.addEventListener('click', (e) => {
   e.preventDefault();
-  MyCubes.push(new Dice(prompt('сколько сторон?', 4)));
+  const newDice = new Dice(prompt('сколько сторон?', 4));
+
+  newDice.diceRoll();
+  MyCubes.push(newDice);
+  const newCube = document.createElement('div');
+  newCube.className = 'container__cube';
+  newCube.innerText = newDice.getResult();
+  const btnPlus = document.createElement('button');
+  newCube.appendChild(btnPlus);
+  btnPlus.innerText = '+';
+  const sidesQty = document.createElement('p');
+  sidesQty.innerText = newDice.getSides();
+  newCube.appendChild(sidesQty);
+  btnPlus.addEventListener('click', () => {
+    newDice.sidesPlus();
+    sidesQty.innerText = newDice.getSides();
+  });
+  table.appendChild(newCube);
   if (MyCubes.length > 0) throwButton.disabled = false;
 });
 

@@ -33,7 +33,7 @@ createButton.addEventListener('click', (e) => {
   });
 
   table.appendChild(newCube);
-  if (MyCubes.length > 0) throwButton.disabled = false;
+  if (MyCubes.length > 0) throwButton.disabled = false; //если на столе пусто то бросить кубики невозможно
 });
 
 const [CH] = document.getElementsByClassName('history-log');

@@ -13,23 +13,25 @@ const [createButton] = document.getElementsByClassName(
 
 createButton.addEventListener('click', (e) => {
   e.preventDefault();
-  const newDice = new Dice(prompt('сколько сторон?', 4));
+  const newDice = new Dice(prompt('сколько сторон?', 4)); //создается экземпляр класса
 
-  newDice.diceRoll();
-  MyCubes.push(newDice);
-  const newCube = document.createElement('div');
-  newCube.className = 'container__cube';
-  newCube.innerText = newDice.getResult();
-  const btnPlus = document.createElement('button');
-  newCube.appendChild(btnPlus);
-  btnPlus.innerText = '+';
-  const sidesQty = document.createElement('p');
-  sidesQty.innerText = newDice.getSides();
-  newCube.appendChild(sidesQty);
+  newDice.diceRoll(); //выполняется бросок
+  MyCubes.push(newDice); //добавляется в массив кубиков
+  const newCube = document.createElement('div'); //создается кубик в штмл
+  newCube.className = 'container__cube'; //присваимвам кубику класс
+  newCube.innerText = newDice.getResult(); //выводит результат броска!!!!!-----------------------------
+  const btnPlus = document.createElement('button'); //создается кнопка плюс
+  newCube.appendChild(btnPlus); //добавляем плюс в кубик
+  btnPlus.innerText = '+'; //устанавливаем на плюс символ +
+  const sidesQty = document.createElement('p'); //создаем элемент для показа количества сторон
+  sidesQty.innerText = newDice.getSides(); //берем информацию о количестве сторон
+  newCube.appendChild(sidesQty); //добавляем элемент о количестве сторон в кубик
+
   btnPlus.addEventListener('click', () => {
     newDice.sidesPlus();
-    sidesQty.innerText = newDice.getSides();
+    sidesQty.innerText = newDice.getSides(); //на кнопку плюс увеличение сторон и отображение их на кубике
   });
+
   table.appendChild(newCube);
   if (MyCubes.length > 0) throwButton.disabled = false;
 });
